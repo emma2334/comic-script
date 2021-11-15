@@ -11,11 +11,13 @@ javascript: (function () {
       query = '.is-current a > div > p';
       break;
   }
+  const list = [...document.querySelectorAll(query)]
+    .reverse()
+    .map(e => e.innerText.trim())
+    .join('\n\n');
 
-  console.log(
-    [...document.querySelectorAll(query)]
-      .reverse()
-      .map(e => e.innerText.trim())
-      .join('\n\n')
+  navigator.clipboard.writeText(list).then(
+    () => console.log('Copy success!'),
+    () => console.log(list)
   );
 })();
