@@ -10,6 +10,7 @@ javascript: (function () {
 
   let fileName, imgURLs;
   switch (location.hostname) {
+    /* Add your own rules */
     default:
       fileName = $('title')[0].innerText;
       imgURLs = [...$('img')].map(e => e.getAttribute('src'));
